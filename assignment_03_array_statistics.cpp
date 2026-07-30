@@ -42,3 +42,82 @@
 #include <iostream>
 using namespace std;
 
+int findSum(int numbers[], int size)
+{
+    int sum = 0;
+
+    for (int i = 0; i < size; i++)
+    {
+        sum += numbers[i];
+    }
+
+    return sum;
+}
+
+double findAverage(int numbers[], int size)
+{
+    int sum = findSum(numbers, size);
+
+    return (double)sum / size;
+}
+
+int findMaximum(int numbers[], int size)
+{
+    int maximum = numbers[0];
+
+    for (int i = 1; i < size; i++)
+    {
+        if (numbers[i] > maximum)
+        {
+            maximum = numbers[i];
+        }
+    }
+
+    return maximum;
+}
+
+int findMinimum(int numbers[], int size)
+{
+    int minimum = numbers[0];
+
+    for (int i = 1; i < size; i++)
+    {
+        if (numbers[i] < minimum)
+        {
+            minimum = numbers[i];
+        }
+    }
+
+    return minimum;
+}
+
+int main()
+{
+    int size;
+
+    cout << "How many numbers? ";
+    cin >> size;
+
+    if (size <= 0)
+    {
+        cout << "Error: Number of values must be greater than 0." << endl;
+        return 0;
+    }
+
+    int numbers[size];
+
+    for (int i = 0; i < size; i++)
+    {
+        cout << "Enter number " << i + 1 << ": ";
+        cin >> numbers[i];
+    }
+
+    cout << endl;
+    cout << "Results:" << endl;
+    cout << "Sum: " << findSum(numbers, size) << endl;
+    cout << "Average: " << findAverage(numbers, size) << endl;
+    cout << "Maximum: " << findMaximum(numbers, size) << endl;
+    cout << "Minimum: " << findMinimum(numbers, size) << endl;
+
+    return 0;
+}
