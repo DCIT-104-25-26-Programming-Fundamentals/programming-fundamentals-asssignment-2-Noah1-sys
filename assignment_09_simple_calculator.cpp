@@ -73,3 +73,204 @@
 #include <cmath>
 using namespace std;
 
+double addition(double a, double b) {
+    return a + b;
+}
+
+double subtraction(double a, double b) {
+    return a - b;
+}
+
+
+double multiplication(double a, double b) {
+    return a * b;
+}
+
+
+double division(double a, double b) {
+
+    if (b == 0) {
+        cout << "Error: Cannot divide by zero." << endl;
+        return 0;
+    }
+
+    return a / b;
+}
+
+
+int calculatemodulus(int a, int b) {
+
+    if (b == 0) {
+        cout << "Error: Cannot divide by zero." << endl;
+        return 0;
+    }
+
+    return a % b;
+}
+
+
+double exponentiation(double a, int b) {
+
+    return pow(a, b);
+
+}
+
+
+void displayMenu() {
+
+    cout << endl;
+    cout << "============================" << endl;
+    cout << "       SIMPLE CALCULATOR" << endl;
+    cout << "============================" << endl;
+    cout << "1. Addition" << endl;
+    cout << "2. Subtraction" << endl;
+    cout << "3. Multiplication" << endl;
+    cout << "4. Division" << endl;
+    cout << "5. Modulus" << endl;
+    cout << "6. Exponentiation" << endl;
+    cout << "7. Quit" << endl;
+    cout << "Select an operation (1-7): ";
+
+}
+
+
+int main() {
+
+    int choice;
+    double num1, num2;
+
+
+    while (true) {
+
+        displayMenu();
+
+        cin >> choice;
+
+
+        if (choice == 7) {
+
+            cout << "Goodbye!" << endl;
+            break;
+
+        }
+
+
+        switch(choice) {
+
+
+            case 1:
+
+                cout << "Enter first number: ";
+                cin >> num1;
+
+                cout << "Enter second number: ";
+                cin >> num2;
+
+                cout << fixed << setprecision(2);
+                cout << "Result: " << num1 << " + " << num2 
+                     << " = " << addition(num1, num2) << endl;
+
+                break;
+
+
+
+            case 2:
+
+                cout << "Enter first number: ";
+                cin >> num1;
+
+                cout << "Enter second number: ";
+                cin >> num2;
+
+                cout << fixed << setprecision(2);
+                cout << "Result: " << num1 << " - " << num2 
+                     << " = " << subtraction(num1, num2) << endl;
+
+                break;
+
+
+
+            case 3:
+
+                cout << "Enter first number: ";
+                cin >> num1;
+
+                cout << "Enter second number: ";
+                cin >> num2;
+
+                cout << fixed << setprecision(2);
+                cout << "Result: " << num1 << " * " << num2 
+                     << " = " << multiplication(num1, num2) << endl;
+
+                break;
+
+
+
+            case 4:
+
+                cout << "Enter first number: ";
+                cin >> num1;
+
+                cout << "Enter second number: ";
+                cin >> num2;
+
+                cout << fixed << setprecision(2);
+
+                if (num2 != 0) {
+                    cout << "Result: " << num1 << " / " << num2 
+                         << " = " << division(num1, num2) << endl;
+                }
+                else {
+                    division(num1, num2);
+                }
+
+                break;
+
+
+
+            case 5:
+
+                int int1, int2;
+
+                cout << "Enter first number: ";
+                cin >> int1;
+
+                cout << "Enter second number: ";
+                cin >> int2;
+
+                cout << "Result: " << int1 << " % " << int2 
+                     << " = " << calculatemodulus(int1, int2) << endl;
+
+                break;
+
+
+
+            case 6:
+
+                int power;
+
+                cout << "Enter base number: ";
+                cin >> num1;
+
+                cout << "Enter exponent: ";
+                cin >> power;
+
+                cout << fixed << setprecision(2);
+                cout << "Result: " << num1 << " ^ " << power 
+                     << " = " << exponentiation(num1, power) << endl;
+
+                break;
+
+
+
+            default:
+
+                cout << "Invalid choice. Please select a number between 1 and 7." << endl;
+
+        }
+
+    }
+
+
+    return 0;
+}
